@@ -6,10 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Utils {
 
     public static WebDriver driver;
-
     public Utils(){
     }
-
     public static WebDriver GetDriver(){
         if (driver == null) {
             String path = "C:\\Users\\Gargameth\\Desktop\\chromedriver.exe";
@@ -18,7 +16,6 @@ public class Utils {
         }
         return driver;
     }
-
     public static void DriverQuit(){
         driver.quit();
         driver = null;

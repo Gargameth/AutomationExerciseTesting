@@ -1,15 +1,12 @@
 package Tests;
 
+import Pages.MainPage;
 import Utils.Utils;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 public class TestBase {
-
-    //static public LoginPage loginPage;
-    //static public ProfilePage profilePage;
-
     private final Dotenv dotenv = Dotenv.configure()
             .filename("URLs.env")
             .load();
@@ -20,8 +17,8 @@ public class TestBase {
 
     @Test
     public void CheckIfBuildWorkingTest(){
-        Utils.driver = Utils.GetDriver();
-        Utils.driver.get(location);
+        MainPage mainPage = new MainPage(location);
+        mainPage.ClickOnSignupLoginButton();
     }
 
     @AfterAll
