@@ -3,8 +3,7 @@ package Tests;
 import Pages.MainPage;
 import Utils.Utils;
 import io.github.cdimascio.dotenv.Dotenv;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.*;
 
 public class TestBase {
     private final Dotenv dotenv = Dotenv.configure()
@@ -21,7 +20,7 @@ public class TestBase {
         mainPage.ClickOnSignupLoginButton();
     }
 
-    @AfterAll
+    @AfterClass
     public static void CleanupDriver(){
         Utils.DriverQuit();
     }
