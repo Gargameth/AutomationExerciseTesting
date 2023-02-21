@@ -76,8 +76,8 @@ public class AccountDetailsPage extends  BasePage {
         FirstName.sendKeys("Makakers");
         LastName.sendKeys("Mananers");
         Company.sendKeys("Durrogós");
-        Address1.sendKeys("Fing utca három bé");
-        Address2.sendKeys("Durr utca kab bé");
+        Address1.sendKeys("Jani utca három bé");
+        Address2.sendKeys("Elment utca kab bé");
         State.sendKeys("Hungarikum");
         City.sendKeys("Bjudapeszt");
         Zipcode.sendKeys("101121210012");

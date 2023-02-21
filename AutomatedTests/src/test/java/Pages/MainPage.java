@@ -2,8 +2,11 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.idealized.log.Log;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.Objects;
 
 public class MainPage extends BasePage {
 
@@ -14,8 +17,25 @@ public class MainPage extends BasePage {
     @FindBy(linkText = "Signup / Login")
     WebElement SignupLoginButton;
 
+    public void CheckSiteVisibility(){
+        String title = driver.getTitle();
+        if (!Objects.equals(title, "Automation Exercise")){
+            System.out.println("Wrong website or title is not displayed correctly.");
+        }
+        else {
+            System.out.println("Right title visible; we are on the required website.");
+        }
+    }
+
+    public void CheckIfSomeoneIsLoggedIn(String username){
+        String LoginCheckerText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(10) > a"))).getText();
+        if (!Objects.equals(LoginCheckerText, "Logged in as " + username)){
+            System.out.println("Wrong user logged in.");
+        }
+        else {System.out.println(username + " is logged in");}
+    }
+
     public void ClickOnSignupLoginButton(){
-        driver.get(url);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("slider-carousel")));
         wait.until(ExpectedConditions.elementToBeClickable(SignupLoginButton)).click();
     }

@@ -19,4 +19,9 @@ public abstract class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
+
+    public void NavigateToUrl(){
+        driver.get(url);
+        driver.manage().window().maximize();
+    }
 }
