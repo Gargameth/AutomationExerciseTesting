@@ -2,7 +2,6 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.idealized.log.Log;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -17,6 +16,9 @@ public class MainPage extends BasePage {
     @FindBy(linkText = "Signup / Login")
     WebElement SignupLoginButton;
 
+    @FindBy(xpath = "//*[@id='header']/div/div/div/div[2]/div/ul/li[8]/a")
+    WebElement ContactUsButton;
+
     public void CheckSiteVisibility(){
         String title = driver.getTitle();
         if (!Objects.equals(title, "Automation Exercise")){
@@ -25,6 +27,10 @@ public class MainPage extends BasePage {
         else {
             System.out.println("Right title visible; we are on the required website.");
         }
+    }
+
+    public void ClickOnContactUsButton(){
+        ContactUsButton.click();
     }
 
     public void CheckIfSomeoneIsLoggedIn(String username){
